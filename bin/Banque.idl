@@ -1,0 +1,33 @@
+module corbaBanque{
+    // Structure représentant un compte bancaire
+    struct Compte {
+        long code;      
+        float solde; 
+    };
+
+ // Alias pour un tableau de comptes
+    typedef sequence<Compte> tabComptes;
+    
+    // Interface pour les opérations bancaires
+    interface IBanqueRemote{
+
+        // Creer un nouveau compte
+        void creerCompte( in Compte cpte);
+        
+        // Effectuer un verser
+        void verser(in float mt,  in long code);
+        
+        // Effectuer un retrait
+        void retrait(in float mt,  in long code);
+        
+        // Obtenir un compte par son code
+        Compte getCompte(in long code);
+        
+        // Obtenir tous les comptes
+        tabComptes getComptes();
+        
+        // Conversion de montant
+        double conversion(in float mt);
+        
+    };
+};
